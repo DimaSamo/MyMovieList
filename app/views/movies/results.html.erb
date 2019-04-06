@@ -1,10 +1,12 @@
-<h1>Please enter a title.</h1>
-<%if session[:api_response] == "False"%>
-  <b>Couldn't find movie, please try again with a different title.</b>
-  <%session[:api_response] = "True"%>
+<h1>Search Results:</h1>
+<%session[:movies].each do |movie_id|%>
+  <%movie=Movie.find(movie_id)%>
+  <div>
+    <img src="<%=movie.image_url%>" alt="Movie Poster" height="150" width="120">
+    <br>
+    <a href="http://www.yahoo.com"><%=movie.title%></a>
+    <br>
+    <br>
+</div>
 <%end%>
-<form method="POST" action="/movies">
-  <label for="user_name">Movie Title</label>
-  <input type="text" name="movie[title]">
-  <input type="submit" value="Search">
-</form>
+<%session[:movies]=[]%>
