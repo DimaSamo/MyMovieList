@@ -1,3 +1,4 @@
+require 'pry'
 class UsersController < ApplicationController
 
   # GET: /users
@@ -12,6 +13,8 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/users" do
+    @user = User.new(params["user"])
+    binding.pry
     redirect "/users"
   end
 
