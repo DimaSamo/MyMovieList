@@ -14,8 +14,12 @@ class UsersController < ApplicationController
   # POST: /users
   post "/users" do
     @user = User.new(params["user"])
-    binding.pry
-    redirect "/users"
+    if @user.save
+      session[:user_id] = @user.id
+      redirect "/users/#{@user.id}"
+    else
+      redirect "/signup/failure"
+    end
   end
 
   # GET: /users/5
@@ -26,6 +30,11 @@ class UsersController < ApplicationController
   # GET: /users/5/edit
   get "/users/:id/edit" do
     erb :"/users/edit.html"
+  end
+
+#  Login Failure Page
+  get "/signup/failure" do
+    erb :"/users/failure.html"
   end
 
   # PATCH: /users/5
