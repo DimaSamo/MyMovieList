@@ -12,6 +12,8 @@ class MoviesController < ApplicationController
 
   # POST: /movies
   post "/movies" do
+    @api=OmdbAPI.new(params["movie"]["title"])
+    binding.pry
     redirect "/movies"
   end
 
