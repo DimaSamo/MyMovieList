@@ -13,8 +13,15 @@ class MoviesController < ApplicationController
   # POST: /movies
   post "/movies" do
     @api=OmdbAPI.new(params["movie"]["title"])
-    binding.pry
-    redirect "/movies"
+    @api_response = @api.query["Response"]
+    if @api_response == "True"
+      session[:movies]=@api.query["Search"]
+    else
+      session[:api_response] = "False"
+      redirect "/movies"
+    end
+    # binding.pry
+     redirect "/movies"
   end
 
   # GET: /movies/5

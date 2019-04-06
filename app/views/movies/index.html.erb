@@ -1,4 +1,8 @@
 <h1>Please enter a title.</h1>
+<%if session[:api_response] == "False"%>
+  <b>Couldn't find movie, please try again with a different title.</b>
+  <%session[:api_response] = "True"%>
+<%end%>
 <form method="POST" action="/movies">
   <label for="user_name">Movie Title</label>
   <input type="text" name="movie[title]">
