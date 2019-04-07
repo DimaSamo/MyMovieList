@@ -23,7 +23,10 @@ class UserMoviesController < ApplicationController
   end
 
   # GET: /user_movies/5
-  get "/user_movies/:id" do
+  get "/user_movies/:user_id/:movie_id" do
+    @movie = Movie.find(params[:movie_id])
+    @user = User.find(params[:user_id])
+    @user_movie = UserMovie.find_by(user_id: params[:user_id], movie_id: params[:movie_id])
     erb :"/user_movies/show.html"
   end
 

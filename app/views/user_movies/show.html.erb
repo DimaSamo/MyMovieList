@@ -1,1 +1,26 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h1><%=@movie.title%></h1>
+  <div>
+    <img src="<%=@movie.image_url%>" alt="Movie Poster">
+    <br>
+    <h3>IMDB Rating:</h3> <p><%=@movie.rating%></p>
+    <h3>Release Year:</h3> <p><%=@movie.release_year%></p>
+    <h3>Genre:</h3> <p><%=@movie.genre%></p>
+    <h3>Plot Summary:</h3> <p><%=@movie.plot%></p>
+    <h3>Seen it?:</h3> <p><%=@user_movie.seen%></p>
+    <h3><%=@user.user_name.capitalize%>'s Personal Rating:</h3> <p><%=@user_movie.personal_rating%></p>
+    <h3><%=@user.user_name.capitalize%>'s Personal Comment:</h3> <p><%=@user_movie.comment%></p>
+    <br>
+    <br>
+    <%if logged_in?%>
+      <%if !UserMovie.find_by(user_id: current_user.id, movie_id: @movie.id)%>
+        <form method="POST" action="/user_movies/new/<%=@movie.id%>">
+          <input type="submit" value="Add to my list">
+        </form>
+      <%else%>
+      <form method="POST" action="/user_movies/<%=@movie.id%>/delete">
+        <input type="hidden" name="_method" value="DELETE"/>
+        <input type="submit" value="Delete from my list">
+      </form>
+      <%end%>
+    <%end%>
+</div>
