@@ -8,4 +8,9 @@
     <h3>Plot Summary:</h3> <p><%=@movie.plot%></p>
     <br>
     <br>
+    <%if logged_in?%>
+    <form method="POST" action="/add_movie/<%=@movie.id%>">
+      <input type="submit" value="Add to my list">
+    </form>
+    <%end%>
 </div>

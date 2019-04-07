@@ -33,6 +33,12 @@ class MoviesController < ApplicationController
      redirect "/movies"
   end
 
+  #add movie to list
+  post "/add_movie/:id" do
+    binding.pry
+  end
+
+
   #Search Results
   get "/movies/results" do
     erb :"/movies/results.html"
