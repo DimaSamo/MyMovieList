@@ -1,10 +1,10 @@
 <h1><%=@user.user_name.capitalize%>'s Movie List:</h1>
-<%@user.movies.each do |movie|%>
-  <div>
-    <img src="<%=movie.image_url%>" alt="Movie Poster" height="150" width="120">
-    <br>
-    <a href="/movies/<%=movie.id%>"><%=movie.title%></a>
-    <br>
-    <br>
-</div>
+<div class="row">
+<%current_user.movies.each do |movie|%>
+    <div class="col-md">
+      <img src="<%=movie.image_url%>" alt="Movie Poster" height="150" width="120">
+      <br>
+      <a href="/user_movies/<%=@user.id%>/<%=movie.id%>"><%=movie.title%></a>
+    </div>
 <%end%>
+</div>

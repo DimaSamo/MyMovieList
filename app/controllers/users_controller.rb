@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     erb :"/users/new.html"
   end
 
+  get "/login" do
+    erb :"/users/login.html"
+  end
+
   # POST: /users
   post "/signup" do
     @user = User.new(params["user"])

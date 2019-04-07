@@ -17,15 +17,15 @@
  </div> -->
 
   <h2>Your Movie List:</h2>
+  <div class="row">
   <%current_user.movies.each do |movie|%>
-    <div>
-      <img src="<%=movie.image_url%>" alt="Movie Poster" height="150" width="120">
-      <br>
-      <a href="/user_movies/<%=current_user.id%>/<%=movie.id%>"><%=movie.title%></a>
-      <br>
-      <br>
-  </div>
+      <div class="col-md">
+        <img src="<%=movie.image_url%>" alt="Movie Poster" height="150" width="120">
+        <br>
+        <a href="/user_movies/<%=current_user.id%>/<%=movie.id%>"><%=movie.title%></a>
+      </div>
   <%end%>
+  </div>
 <%else%>
   <h2>Please Log in or <a href="/signup">Sign Up</a><h2>
   <form method="POST" action="/login">
