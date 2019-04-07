@@ -1,7 +1,7 @@
 <h1>Hello, <%=@user.user_name%></h1>
 <h2>Edit your profile:</h2>
-<form method="POST" action="/signup">
-  <input type="hidden" name="_method" value="patch"/>
+<form method="post" action="/users/<%=@user.id%>">
+  <input type="hidden" name="_method" value="patch">
   <label for="email">E-mail</label>
   <input type="email" name="user[email]">
   <label for="password"> Password</label>

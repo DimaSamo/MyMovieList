@@ -52,6 +52,9 @@ class UsersController < ApplicationController
 
   # PATCH: /users/5
   patch "/users/:id" do
+    @user = User.find(params[:id])
+    @user.update(params[:user])
+    binding.pry
     redirect "/users/:id"
   end
 

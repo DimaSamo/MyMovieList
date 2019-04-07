@@ -7,7 +7,6 @@ class UserMoviesController < ApplicationController
 
   #add movie to list
   post "/user_movies/new/:id" do
-    binding.pry
     @user_movie = UserMovie.new(user_id: current_user.id, movie_id: params[:id])
     @user_movie.save if !UserMovie.find_by(user_id: current_user.id, movie_id: params[:id])
     redirect "/"
@@ -39,7 +38,7 @@ class UserMoviesController < ApplicationController
   end
 
   # DELETE: /user_movies/5/delete
-  post '/user_movies/:id/delete' do
+  delete '/user_movies/:id/delete' do
     @user_movie = UserMovie.find_by(user_id: current_user.id, movie_id: params[:id])
     @user_movie.delete
     redirect "/"
