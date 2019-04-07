@@ -1,6 +1,6 @@
 <h1><%=@user.user_name.capitalize%>'s Movie List:</h1>
 <div class="row">
-<%current_user.movies.each do |movie|%>
+<%@user.movies.each do |movie|%>
     <div class="col-md">
       <img src="<%=movie.image_url%>" alt="Movie Poster" height="150" width="120">
       <br>
