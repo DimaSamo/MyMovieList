@@ -10,8 +10,26 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :homepage
+  end
+
+  post "/login" do
+    binding.pry
+  end
+
+  post "/logout" do
+    session.clear
+    redirect "/"
+  end
+
+  helpers do
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def current_user
+      User.find_by_id(session[:user_id])
+    end
   end
 
 end
-  

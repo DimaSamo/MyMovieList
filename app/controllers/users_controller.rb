@@ -7,17 +7,17 @@ class UsersController < ApplicationController
   end
 
   # GET: /users/new
-  get "/users/new" do
+  get "/signup" do
     erb :"/users/new.html"
   end
 
   # POST: /users
-  post "/users" do
+  post "/signup" do
     @user = User.new(params["user"])
     binding.pry
     if @user.save
       session[:user_id] = @user.id
-      redirect "/users/#{@user.id}"
+      redirect "/"
     else
       redirect "/signup/failure"
     end
