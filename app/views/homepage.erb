@@ -2,9 +2,14 @@
 <br>
 <%if logged_in?%>
   <h3>Welcome <%=current_user.user_name.capitalize%></h3>
-  <form method="POST" action="/logout">
-    <input type="submit" value="Logout">
-  </form>
+  <div id="navigation">
+    <h4><a href="/movies">Look for a Movie</a><h4>
+    <h4><a href="/users/<%=current_user.id%>/edit">Edit Profile</a><h4>
+    <form method="POST" action="/logout">
+      <input type="submit" value="Logout">
+    </form>
+  </div>
+
   <h2>Your Movie List:</h2>
   <%current_user.movies.each do |movie|%>
     <div>

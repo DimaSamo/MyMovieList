@@ -37,7 +37,12 @@ class UsersController < ApplicationController
 
   # GET: /users/5/edit
   get "/users/:id/edit" do
-    erb :"/users/edit.html"
+    if current_user.id == params[:id].to_i
+      @user = User.find(params[:id])
+      erb :"/users/edit.html"
+    else
+      redirect "/"
+    end
   end
 
 #  Login Failure Page

@@ -33,12 +33,12 @@ class MoviesController < ApplicationController
      redirect "/movies"
   end
 
-  #add movie to list
-  post "/add_movie/:id" do
-    @user_movie = UserMovie.new(user_id: current_user.id, movie_id: params[:id])
-    @user_movie.save if !UserMovie.find_by(user_id: current_user.id, movie_id: params[:id])
-    redirect "/"
-  end
+  # #add movie to list
+  # post "/add_movie/:id" do
+  #   @user_movie = UserMovie.new(user_id: current_user.id, movie_id: params[:id])
+  #   @user_movie.save if !UserMovie.find_by(user_id: current_user.id, movie_id: params[:id])
+  #   redirect "/"
+  # end
 
 
   #Search Results
