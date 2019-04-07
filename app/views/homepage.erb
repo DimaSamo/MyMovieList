@@ -10,6 +10,12 @@
     </form>
   </div>
 
+  <!-- Webpage within a webpage -->
+  <!-- <div>
+    <object type="text/html" data="/users/<%=current_user.id%>/edit" width="800px" height="600px">
+    </object>
+ </div> -->
+
   <h2>Your Movie List:</h2>
   <%current_user.movies.each do |movie|%>
     <div>

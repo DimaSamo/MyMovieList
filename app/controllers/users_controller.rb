@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   post "/signup" do
     @user = User.new(params["user"])
     if @user.save
+      @user.update(user_name: @user.user_name.downcase)
       session[:user_id] = @user.id
       redirect "/"
     else
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   post "/login" do
-    @user = User.find_by(user_name: params[:user_name])
+    @user = User.find_by(user_name: params[:user_name].downcase)
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
     end
