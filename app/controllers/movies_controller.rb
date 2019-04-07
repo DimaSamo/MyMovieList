@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
 
   # GET: /movies
   get "/movies" do
+    protected!
     erb :"/movies/index.html"
   end
 
@@ -43,11 +44,13 @@ class MoviesController < ApplicationController
 
   #Search Results
   get "/movies/results" do
+    protected!
     erb :"/movies/results.html"
   end
 
   # GET: /movies/5
   get "/movies/:id" do
+    protected!
     @movie = Movie.find(params[:id])
     erb :"/movies/show.html"
   end

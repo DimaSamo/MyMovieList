@@ -1,1 +1,10 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h1><%=@user.user_name.capitalize%>'s Movie List:</h1>
+<%@user.movies.each do |movie|%>
+  <div>
+    <img src="<%=movie.image_url%>" alt="Movie Poster" height="150" width="120">
+    <br>
+    <a href="/movies/<%=movie.id%>"><%=movie.title%></a>
+    <br>
+    <br>
+</div>
+<%end%>
