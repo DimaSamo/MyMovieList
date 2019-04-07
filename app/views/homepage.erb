@@ -21,16 +21,14 @@
   <%current_user.movies.each do |movie|%>
       <%user_movie=UserMovie.find_by(user_id: current_user.id, movie_id: movie.id)%>
       <div class="col-md">
-        <div class="card text-white bg-dark mb-3" style="width: 16rem;">
+        <div class="card h-100 text-white bg-dark mb-3" style="width: 16rem;">
           <img src="<%=movie.image_url%>" class="card-img-top" alt="..."  height="256">
           <div class="card-body">
             <h5 class="card-title"><%=movie.title%></h5>
-            <p class="card-text text-truncate">
+            <p class="card-text">
             Seen it? <%=user_movie.seen%>
             <br>
             Personal Rating: <%=user_movie.personal_rating%>
-            <br>
-            Personal Comment: <%=user_movie.comment%>
             </p>
             <a href="/user_movies/<%=current_user.id%>/<%=movie.id%>" class="btn btn-primary">Movie Page</a>
           </div>
