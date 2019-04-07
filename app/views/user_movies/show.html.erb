@@ -17,14 +17,16 @@
           <input type="submit" value="Add to my list">
         </form>
       <%else%>
-      <form method="POST" action="/user_movies/<%=@movie.id%>/delete">
-        <input type="hidden" name="_method" value="DELETE"/>
-        <input type="submit" value="Delete from my list">
+      <form method="GET" action="/user_movies/<%=current_user.id%>/<%=@movie.id%>/edit">
+        <input type="submit" class="btn btn-warning" value="Edit Movie">
       </form>
       <br>
-      <form method="GET" action="/user_movies/<%=current_user.id%>/<%=@movie.id%>/edit">
-        <input type="submit" value="Edit Movie">
+      <form method="POST" action="/user_movies/<%=@movie.id%>/delete">
+        <input type="hidden" name="_method" value="DELETE"/>
+        <input type="submit" class="btn btn-danger" value="Delete from my list">
       </form>
+
+
       <%end%>
     <%end%>
 </div>

@@ -14,11 +14,11 @@
       <br>
       <br>
       <label for="personal_rating">Personal Rating:</label>
-      <input type="number" step="0.1" min="0" name="user_movie[personal_rating]" placeholder="<%=@user_movie.personal_rating%>">
+      <input type="number" step="0.1" min="0" max="10" name="user_movie[personal_rating]" value="<%=@user_movie.personal_rating%>">
       <br>
       <br>
       <label for="personal_comment">Personal Comment:</label>
-      <input type="text" name="user_movie[comment]" placeholder="<%=@user_movie.comment%>">
+      <input type="text" class="container-fluid" name="user_movie[comment]" value="<%=@user_movie.comment%>">
       <br>
       <br>
       <input type="submit" value="Update">

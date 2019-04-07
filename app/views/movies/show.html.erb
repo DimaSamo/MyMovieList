@@ -11,12 +11,12 @@
     <%if logged_in?%>
       <%if !UserMovie.find_by(user_id: current_user.id, movie_id: @movie.id)%>
         <form method="POST" action="/user_movies/new/<%=@movie.id%>">
-          <input type="submit" value="Add to my list">
+          <input type="submit" class="btn btn-success" value="Add to my list">
         </form>
       <%else%>
       <form method="POST" action="/user_movies/<%=@movie.id%>/delete">
         <input type="hidden" name="_method" value="DELETE"/>
-        <input type="submit" value="Delete from my list">
+        <input type="submit" class="btn btn-danger" value="Delete from my list">
       </form>
       <%end%>
     <%end%>
