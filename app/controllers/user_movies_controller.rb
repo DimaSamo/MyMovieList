@@ -31,13 +31,18 @@ class UserMoviesController < ApplicationController
   end
 
   # GET: /user_movies/5/edit
-  get "/user_movies/:id/edit" do
+  get "/user_movies/:user_id/:movie_id/edit" do
+    @movie = Movie.find(params[:movie_id])
+    @user = User.find(params[:user_id])
+    @user_movie = UserMovie.find_by(user_id: params[:user_id], movie_id: params[:movie_id])
     erb :"/user_movies/edit.html"
   end
 
   # PATCH: /user_movies/5
-  patch "/user_movies/:id" do
-    redirect "/user_movies/:id"
+  patch "/user_movies/:user_id/:movie_id" do
+    @user_movie = UserMovie.find_by(user_id: params[:user_id], movie_id: params[:movie_id])
+    @user_movie.update(params[:user_movie])
+    redirect "/user_movies/#{@user_movie.user_id}/#{@user_movie.movie_id}"
   end
 
   # DELETE: /user_movies/5/delete

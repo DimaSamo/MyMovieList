@@ -21,6 +21,10 @@
         <input type="hidden" name="_method" value="DELETE"/>
         <input type="submit" value="Delete from my list">
       </form>
+      <br>
+      <form method="GET" action="/user_movies/<%=current_user.id%>/<%=@movie.id%>/edit">
+        <input type="submit" value="Edit Movie">
+      </form>
       <%end%>
     <%end%>
 </div>

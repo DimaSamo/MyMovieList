@@ -1,1 +1,27 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1><%=@movie.title%></h1>
+  <div>
+    <img src="<%=@movie.image_url%>" alt="Movie Poster">
+    <br>
+
+    <h2>Edit your notes:</h2>
+    <form method="post" action="/user_movies/<%=@user.id%>/<%=@movie.id%>">
+      <input type="hidden" name="_method" value="patch">
+      <label for="seen">Seen it?</label>
+      <br>
+      <br>
+      <input type="radio" name="user_movie[seen]" value="true" <%='checked' if @user_movie.seen==true%>> Yes
+      <input type="radio" name="user_movie[seen]" value="false" <%='checked' if @user_movie.seen==false%>> No
+      <br>
+      <br>
+      <label for="personal_rating">Personal Rating:</label>
+      <input type="number" step="0.1" min="0" name="user_movie[personal_rating]" placeholder="<%=@user_movie.personal_rating%>">
+      <br>
+      <br>
+      <label for="personal_comment">Personal Comment:</label>
+      <input type="text" name="user_movie[comment]" placeholder="<%=@user_movie.comment%>">
+      <br>
+      <br>
+      <input type="submit" value="Update">
+    </form>
+
+  </div>

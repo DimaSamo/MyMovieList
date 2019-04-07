@@ -21,7 +21,7 @@
     <div>
       <img src="<%=movie.image_url%>" alt="Movie Poster" height="150" width="120">
       <br>
-      <a href="/movies/<%=movie.id%>"><%=movie.title%></a>
+      <a href="/user_movies/<%=current_user.id%>/<%=movie.id%>"><%=movie.title%></a>
       <br>
       <br>
   </div>
