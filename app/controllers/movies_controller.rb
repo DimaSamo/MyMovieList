@@ -35,7 +35,9 @@ class MoviesController < ApplicationController
 
   #add movie to list
   post "/add_movie/:id" do
-    binding.pry
+    @user_movie = UserMovie.new(user_id: current_user.id, movie_id: params[:id])
+    @user_movie.save if !UserMovie.find_by(user_id: current_user.id, movie_id: params[:id])
+    redirect "/"
   end
 
 
