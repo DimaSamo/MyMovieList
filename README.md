@@ -4,14 +4,14 @@ MyMovieList is a MVC Sinatra web application that allows a user to store movies 
 
 ## Installation
   Enter the following line in your terminal:
-    $ git@github.com:DimaSamo/MyMovieList.git
+   ` $ git@github.com:DimaSamo/MyMovieList.git`
   After you've cloned the repo run:
-    $ bundle install
-    $ rake db:migrate
+   ` $ bundle install`
+   ` $ rake db:migrate`
 ## Usage
 
   Enter the below in your terminal and copy the IP address and navigate to it in your browser.
-    $ shotgun
+    `$ shotgun`
 
 ## Contributing
 
