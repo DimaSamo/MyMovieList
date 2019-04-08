@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "mymovielist"
     set :method_override, true
+    register Sinatra::Flash
   end
 
   get "/" do
