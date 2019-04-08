@@ -34,11 +34,11 @@
           <div class="card-body">
             <h5 class="card-title"><%=movie.title%></h5>
             <p class="card-text overflow-auto" id="style-1" style="height: 100px">
-            Seen it? <img src="<%=user_movie.seen?%>">
+            <b>Seen it?</b> <img src="<%=user_movie.seen?%>">
             <br>
-            Personal Rating: <%=user_movie.personal_rating%>
+            <b>Personal Rating:</b> <%=user_movie.personal_rating%>
             <br>
-            Personal Rating: <%=user_movie.comment%>
+            <b>Personal Comment:</b> <%=user_movie.comment%>
             </p>
             <a href="/user_movies/<%=current_user.id%>/<%=movie.id%>" class="btn btn-primary">Movie Page</a>
           </div>
