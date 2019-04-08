@@ -15,8 +15,9 @@ MyMovieList is a MVC Sinatra web application that allows a user to store movies 
 ## Usage
 
   Enter the below in your terminal and copy the IP address and navigate to it in your browser.
-    `$ shotgun`
-
+    ```
+    $ shotgun
+    ```
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/DimaSamo/MyMovieList. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
