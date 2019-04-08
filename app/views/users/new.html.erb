@@ -1,4 +1,9 @@
 <h2>Sign up<h2>
+  <%if @invalid%>
+    <div class="alert alert-danger" role="alert">
+      User Name or E-mail already taken.
+    </div>
+  <%end%>
 <form method="POST" action="/signup">
   <div class="form-group"
     <label for="user_name">User Name</label>

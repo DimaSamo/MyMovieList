@@ -1,12 +1,22 @@
 <h1>Search Results:</h1>
+<div class="row">
 <%session[:movies].each do |movie_id|%>
   <%movie=Movie.find(movie_id)%>
-  <div>
-    <img src="<%=movie.image_url%>" alt="Movie Poster" height="150" width="120">
-    <br>
-    <a href="/movies/<%=movie.id%>"><%=movie.title%></a>
-    <br>
-    <br>
-</div>
+  <div class="col-md">
+    <div class="card h-100 text-white bg-dark mb-3" style="width: 16rem;">
+      <img src="<%=movie.image_url%>" class="card-img-top" alt="..."  height="256">
+      <div class="card-body">
+        <h5 class="card-title"><%=movie.title%></h5>
+        <p class="card-text overflow-auto" id="style-1" style="height: 100px">
+        <b>IMDB Rating:</b> <%=movie.rating%>
+        <br>
+        <br>
+        <b>Plot:</b> <%=movie.plot%>
+        </p>
+        <a href="/movies/<%=movie.id%>" class="btn btn-primary">Movie Page</a>
+      </div>
+    </div>
+  </div>
 <%end%>
+</div>
 <%session[:movies]=[]%>

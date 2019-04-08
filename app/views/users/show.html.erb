@@ -1,10 +1,22 @@
-<h1><%=@user.user_name.capitalize%>'s Movie List:</h1>
+<h2><%=@user.user_name.capitalize%>'s Movie List:</h2>
 <div class="row">
 <%@user.movies.each do |movie|%>
+    <%user_movie=UserMovie.find_by(user_id: @user.id, movie_id: movie.id)%>
     <div class="col-md">
-      <img src="<%=movie.image_url%>" alt="Movie Poster" height="150" width="120">
-      <br>
-      <a href="/user_movies/<%=@user.id%>/<%=movie.id%>"><%=movie.title%></a>
+      <div class="card h-100 text-white bg-dark mb-3" style="width: 16rem;">
+        <img src="<%=movie.image_url%>" class="card-img-top" alt="..."  height="256">
+        <div class="card-body">
+          <h5 class="card-title"><%=movie.title%></h5>
+          <p class="card-text overflow-auto" id="style-1" style="height: 100px">
+          <b>Seen it?</b> <%=user_movie.seen%>
+          <br>
+          <b><%=@user.user_name.capitalize%>'s Rating:</b> <%=user_movie.personal_rating%>
+          <br>
+          <b><%=@user.user_name.capitalize%>'s Comment:</b> <%=user_movie.comment%>
+          </p>
+          <a href="/user_movies/<%=current_user.id%>/<%=movie.id%>" class="btn btn-primary">Movie Page</a>
+        </div>
+      </div>
     </div>
 <%end%>
 </div>

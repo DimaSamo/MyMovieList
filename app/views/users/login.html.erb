@@ -1,4 +1,9 @@
 <h2>Please Log in<h2>
+  <%if @invalid%>
+    <div class="alert alert-danger" role="alert">
+      Username and password do not match.
+    </div>
+  <%end%>
 <form method="POST" action="/login">
   <div class="form-group">
     <label for="user_name">User Name:</label>

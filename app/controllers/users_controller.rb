@@ -8,11 +8,18 @@ class UsersController < ApplicationController
 
   # GET: /users/new
   get "/signup" do
+    @invalid=params[:invalid]
     erb :"/users/new.html"
   end
 
   get "/login" do
+    @invalid=params[:invalid]
     erb :"/users/login.html"
+  end
+
+  get "/logout" do
+    session.clear
+    redirect "/"
   end
 
   # POST: /users
@@ -23,7 +30,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/"
     else
-      redirect "/signup/failure"
+      redirect "/signup?invalid=true"
     end
   end
 
@@ -32,7 +39,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
     end
-    redirect "/"
+    redirect "/login?invalid=true"
   end
 
   # GET: /users/5
