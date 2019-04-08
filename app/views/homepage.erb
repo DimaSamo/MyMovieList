@@ -34,7 +34,7 @@
           <div class="card-body">
             <h5 class="card-title"><%=movie.title%></h5>
             <p class="card-text overflow-auto" id="style-1" style="height: 100px">
-            Seen it? <%=user_movie.seen%>
+            Seen it? <img src="<%=user_movie.seen?%>">
             <br>
             Personal Rating: <%=user_movie.personal_rating%>
             <br>

@@ -6,7 +6,7 @@
     <h3>Release Year:</h3> <p><%=@movie.release_year%></p>
     <h3>Genre:</h3> <p><%=@movie.genre%></p>
     <h3>Plot Summary:</h3> <p><%=@movie.plot%></p>
-    <h3>Seen it?:</h3> <p><%=@user_movie.seen%></p>
+    <h3>Seen it?:</h3> <img src="<%=@user_movie.seen?%>">
     <h3><%=@user.user_name.capitalize%>'s Personal Rating:</h3> <p><%=@user_movie.personal_rating%></p>
     <h3><%=@user.user_name.capitalize%>'s Personal Comment:</h3> <p><%=@user_movie.comment%></p>
     <br>
