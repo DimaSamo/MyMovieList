@@ -1,4 +1,10 @@
-<h1>Hello, <%=@user.user_name.capitalize%></h1>
+<%if @invalid%>
+  <div class="alert alert-danger" role="alert">
+    E-mail already taken.
+  </div>
+<%end%>
+
+<h2>Hello, <%=@user.user_name.capitalize%></h2>
 <h2>Edit your profile:</h2>
 <form method="post" action="/users/<%=@user.id%>">
   <input type="hidden" name="_method" value="patch">

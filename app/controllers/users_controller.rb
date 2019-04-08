@@ -47,6 +47,7 @@ class UsersController < ApplicationController
   # GET: /users/5
   get "/users/:id" do
     protected!
+    @updated = params[:updated]
     @user = User.find(params[:id])
     erb :"/users/show.html"
   end
@@ -54,6 +55,7 @@ class UsersController < ApplicationController
   # GET: /users/5/edit
   get "/users/:id/edit" do
     protected!
+    @invalid=params[:invalid]
     if current_user.id == params[:id].to_i
       @user = User.find(params[:id])
       erb :"/users/edit.html"
@@ -70,9 +72,12 @@ class UsersController < ApplicationController
   # PATCH: /users/5
   patch "/users/:id" do
     @user = User.find(params[:id])
-    @user.update(params[:user])
-    binding.pry
-    redirect "/users/:id"
+    if @user.update(params[:user])
+      redirect "/users/#{@user.id}?updated=true"
+    else
+      redirect "/users/#{@user.id}/edit?invalid=true"
+    end
+    redirect "/users/#{@user.id}"
   end
 
   # DELETE: /users/5/delete

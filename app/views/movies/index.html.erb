@@ -7,6 +7,8 @@
 </form>
 <br>
 <%if session[:api_response] == "False"%>
+  <div class="alert alert-danger" role="alert">
   <b>Couldn't find movie, please try again with a different title.</b>
+  </div>
   <%session[:api_response] = "True"%>
 <%end%>
