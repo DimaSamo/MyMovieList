@@ -9,6 +9,7 @@ class UserMoviesController < ApplicationController
 
   # GET: /user_movies/5
   get "/user_movies/:user_id/:movie_id" do
+    protected!
     @movie = Movie.find(params[:movie_id])
     @user = User.find(params[:user_id])
     @user_movie = UserMovie.find_by(user_id: @user.id, movie_id: @movie.id)
@@ -17,10 +18,15 @@ class UserMoviesController < ApplicationController
 
   # GET: /user_movies/5/edit
   get "/user_movies/:user_id/:movie_id/edit" do
-    @movie = Movie.find(params[:movie_id])
-    @user = User.find(params[:user_id])
-    @user_movie = UserMovie.find_by(user_id: params[:user_id], movie_id: params[:movie_id])
-    erb :"/user_movies/edit.html"
+    protected!
+    if current_user.id == params[:user_id].to_i
+      @movie = Movie.find(params[:movie_id])
+      @user = User.find(params[:user_id])
+      @user_movie = UserMovie.find_by(user_id: params[:user_id], movie_id: params[:movie_id])
+      erb :"/user_movies/edit.html"
+    else
+      redirect "/user_movies/#{params[:user_id]}/#{params[:movie_id]}"
+    end
   end
 
   # PATCH: /user_movies/5
