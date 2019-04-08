@@ -38,8 +38,10 @@ class UsersController < ApplicationController
     @user = User.find_by(user_name: params[:user_name].downcase)
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
+    else
+      redirect "/login?invalid=true"
     end
-    redirect "/login?invalid=true"
+      redirect "/"
   end
 
   # GET: /users/5

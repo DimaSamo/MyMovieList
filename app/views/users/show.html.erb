@@ -1,8 +1,29 @@
+
+<%if current_user==@user%>
+<h2>Your Profile:</h2>
+<div class="row">
+  <div class="col-3">
+  <a class="btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Share your profile!
+  </a>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <b>Profile Link:</b> <a href="<%=request.url%>users/<%=current_user[:id]%>">Link</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-2">
+    <a class="btn btn-warning" href="/users/<%=current_user.id%>/edit">Edit Profile</a>
+  </div>
+</div>
+<%end%>
+<br>
+<br>
 <h2><%=@user.user_name.capitalize%>'s Movie List:</h2>
 <div class="row">
 <%@user.movies.each do |movie|%>
     <%user_movie=UserMovie.find_by(user_id: @user.id, movie_id: movie.id)%>
-    <div class="col-md">
+    <div class="col-4">
       <div class="card h-100 text-white bg-dark mb-3" style="width: 16rem;">
         <img src="<%=movie.image_url%>" class="card-img-top" alt="..."  height="256">
         <div class="card-body">
@@ -14,7 +35,7 @@
           <br>
           <b><%=@user.user_name.capitalize%>'s Comment:</b> <%=user_movie.comment%>
           </p>
-          <a href="/user_movies/<%=current_user.id%>/<%=movie.id%>" class="btn btn-primary">Movie Page</a>
+          <a href="/user_movies/<%=@user.id%>/<%=movie.id%>" class="btn btn-primary">Movie Page</a>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 <div class="row">
 <%session[:movies].each do |movie_id|%>
   <%movie=Movie.find(movie_id)%>
-  <div class="col-md">
+  <div class="col-4">
     <div class="card h-100 text-white bg-dark mb-3" style="width: 16rem;">
       <img src="<%=movie.image_url%>" class="card-img-top" alt="..."  height="256">
       <div class="card-body">
