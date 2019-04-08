@@ -18,9 +18,6 @@ class ApplicationController < Sinatra::Base
     erb :homepage
   end
 
-  # post "/login" do
-  #   binding.pry
-  # end
 
   post "/logout" do
     session.clear
