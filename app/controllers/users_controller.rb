@@ -1,11 +1,6 @@
 require 'pry'
 class UsersController < ApplicationController
 
-  # GET: /users
-  get "/users" do
-    erb :"/users/index.html"
-  end
-
   # GET: /users/new
   get "/signup" do
     @invalid=params[:invalid]
@@ -64,11 +59,6 @@ class UsersController < ApplicationController
     end
   end
 
-#  Login Failure Page
-  get "/signup/failure" do
-    erb :"/users/failure.html"
-  end
-
   # PATCH: /users/5
   patch "/users/:id" do
     @user = User.find(params[:id])
@@ -80,8 +70,4 @@ class UsersController < ApplicationController
     redirect "/users/#{@user.id}"
   end
 
-  # DELETE: /users/5/delete
-  delete "/users/:id/delete" do
-    redirect "/users"
-  end
 end
