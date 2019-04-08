@@ -1,14 +1,15 @@
 <h1>Please enter a title.</h1>
-
-<form method="POST" action="/movies">
-  <label for="movie_title">Movie Title</label>
-  <input type="text" name="movie[title]">
-  <input type="submit" value="Search">
-</form>
-<br>
 <%if session[:api_response] == "False"%>
   <div class="alert alert-danger" role="alert">
   <b>Couldn't find movie, please try again with a different title.</b>
   </div>
   <%session[:api_response] = "True"%>
 <%end%>
+<form method="POST" action="/movies">
+  <div class="form-group"
+    <label for="movie_title">Movie Title</label>
+    <input type="text" class="form-control" name="movie[title]">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Search">
+</form>
+<br>

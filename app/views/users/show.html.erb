@@ -15,7 +15,7 @@
   </a>
     <div class="collapse" id="collapseExample">
       <div class="card card-body">
-        <b>Profile Link:</b> <a href="<%=request.url%>users/<%=current_user[:id]%>">Link</a>
+        <b>Profile Link:</b> <a href="<%=request.url.split("?")[0]%>">Link</a>
       </div>
     </div>
   </div>
