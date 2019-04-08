@@ -4,10 +4,14 @@ MyMovieList is a MVC Sinatra web application that allows a user to store movies 
 
 ## Installation
   Enter the following line in your terminal:
-    ` $ git@github.com:DimaSamo/MyMovieList.git`
+  ```
+     $ git@github.com:DimaSamo/MyMovieList.git
+  ```
         After you've cloned the repo run:
-          ` $ bundle install`
-            ` $ rake db:migrate`
+        ```
+         $ bundle install
+         $ rake db:migrate
+         ```
 ## Usage
 
   Enter the below in your terminal and copy the IP address and navigate to it in your browser.
@@ -23,4 +27,4 @@ The application is available as open source under the terms of the [MIT License]
 
 ## Code of Conduct
 
-Everyone interacting in the MyMovieList project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/DimaSamo/lol_champions/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the MyMovieList project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/DimaSamo/MyMovieList/blob/master/CODE_OF_CONDUCT.md).
