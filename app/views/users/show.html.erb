@@ -23,9 +23,9 @@
     <a class="btn btn-warning" href="/users/<%=current_user.id%>/edit">Edit Profile</a>
   </div>
 </div>
+<br>
+<br>
 <%end%>
-<br>
-<br>
 <h2><%=@user.user_name.capitalize%>'s Movie List:</h2>
 <div class="row">
 <%@user.movies.each do |movie|%>
@@ -36,7 +36,7 @@
         <div class="card-body">
           <h5 class="card-title"><%=movie.title%></h5>
           <p class="card-text overflow-auto" id="style-1" style="height: 100px">
-          <b>Seen it?</b> <%=user_movie.seen%>
+          <b>Seen it?</b> <img src="<%=user_movie.seen?%>">
           <br>
           <b><%=@user.user_name.capitalize%>'s Rating:</b> <%=user_movie.personal_rating%>
           <br>
