@@ -13,15 +13,7 @@ class MoviesController < ApplicationController
     if @api_response == "True"
       session[:movies]=[]
       @movies=@api.query["Search"]
-      @movies.each do |movie|
-        specific_movie = @api.query_specific(movie["Title"])
-        # binding.pry
-        movie_object = (Movie.find_by(title: specific_movie["Title"]) or Movie.create(title: specific_movie["Title"], release_year: specific_movie["Year"], plot: specific_movie["Plot"], rating: specific_movie["imdbRating"], image_url: specific_movie["Poster"]))
-        movie_object.update(title: specific_movie["Title"], release_year: specific_movie["Year"], genre: specific_movie["Genre"], plot: specific_movie["Plot"], rating: specific_movie["imdbRating"], image_url: specific_movie["Poster"])
-        session[:movies] << movie_object.id
-        session[:movies].uniq!
-        session[:movies].compact!
-      end
+      Movie.iterate(@movies, @api, session)
       redirect "/movies/results"
     else
       session[:api_response] = "False"
